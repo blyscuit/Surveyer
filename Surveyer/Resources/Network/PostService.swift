@@ -17,7 +17,7 @@ class PostService {
         let url = "https://jsonplaceholder.typicode.com/posts"
 //        let url = baseURL + "/surveys.json?page=1&per_page=1"
 
-        Alamofire.request(url, method: .get, encoding: JSONEncoding.default).responseJSON(completionHandler: { response in
+        Alamofire.request(url, method: .get, parameters: params).responseJSON(completionHandler: { response in
             
             if let data = response.result.value {
                 
@@ -34,7 +34,6 @@ class PostService {
                     return HotelModel(JSON: dic)!
                 })
                 
-                //let size = jsonResponse["size"] as? Int
                 completionHandler(listPosts, nil)
                 
             } else {

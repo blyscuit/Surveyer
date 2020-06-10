@@ -12,6 +12,7 @@ class HotelModel: Mappable {
     var title: String?
     var description: String?
     var questions: [QuestionModel]?
+    var coverImageUrl: String?
     
     required init?(map: Map) {
     }
@@ -20,6 +21,7 @@ class HotelModel: Mappable {
         title <- map["title"]
         description <- map["description"]
         questions <- map["questions"]
+        coverImageUrl <- map["cover_image_url"]
     }
 }
 

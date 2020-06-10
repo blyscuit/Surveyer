@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class HomeViewModel: NSObject {
     let dataSource: HomeSurveyDataSource
@@ -31,6 +32,14 @@ class HomeSurveyDataSource: GenericDataSource<HotelModel>, UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeSurveyCollectionViewCell.reuseId, for: indexPath) as? HomeSurveyCollectionViewCell
+        let model = data.value[indexPath.row]
+        // bind cell here or in Cell class with a custom method
+        cell?.titleLabel.text = model.title
+        cell?.descriptionLabel.text = model.description
+        if let text = model.coverImageUrl, let url = URL(string: text) {
+            cell?.imageView.af_setImage(withURL: url)
+        }
+        return cell ?? UICollectionViewCell()
     }
 }

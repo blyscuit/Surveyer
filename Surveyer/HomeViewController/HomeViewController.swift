@@ -13,8 +13,12 @@ class HomeViewController: BaseViewController {
     let viewModel = HomeViewModel()
     
     lazy var surveyCollectionView: UICollectionView = {
-        let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.scrollDirection = .vertical
+        let flowLayout: UICollectionViewFlowLayout = {
+            let fl = UICollectionViewFlowLayout()
+            fl.scrollDirection = .vertical
+            fl.itemSize = self.view.bounds.size
+            return fl
+        }()
         let cv = UICollectionView(frame: view.bounds, collectionViewLayout: flowLayout)
         cv.isPagingEnabled = true
         return cv
@@ -56,9 +60,10 @@ class HomeViewController: BaseViewController {
         
         takeSurveyButton.title = NSLocalizedString("home.mainButton", comment: "")
         
+        surveyCollectionView.register(HomeSurveyCollectionViewCell.self, forCellWithReuseIdentifier: HomeSurveyCollectionViewCell.reuseId)
+        
         surveyCollectionView.dataSource = viewModel.dataSource
         surveyCollectionView.delegate = self
-        
         
     }
     
@@ -69,11 +74,21 @@ class HomeViewController: BaseViewController {
         }
     }
 
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        surveyCollectionView.collectionViewLayout.invalidateLayout()
+    }
+    
     @objc func refreshData(_ sender: UIControl) {
         viewModel.getData()
     }
 }
 
 extension HomeViewController: UICollectionViewDelegate {
-    // nothing here for now
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let x = scrollView.contentOffset.y
+        let w = scrollView.bounds.size.height
+        let currentPage = Int(ceil(x/w))
+        pageControl.currentPage = currentPage
+    }
 }
