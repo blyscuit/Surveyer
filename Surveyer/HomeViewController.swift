@@ -13,7 +13,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "SURVEYS"
+        title = NSLocalizedString("Surveys", comment: "")
     }
 
 }

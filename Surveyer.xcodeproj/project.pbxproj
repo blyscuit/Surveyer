@@ -15,6 +15,7 @@
 		6890BDF824911B9600C71A19 /* SurveyerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6890BDF724911B9600C71A19 /* SurveyerUITests.swift */; };
 		6890BE0624911F0800C71A19 /* SurveyNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6890BE0524911F0800C71A19 /* SurveyNavigationViewController.swift */; };
 		6890BE0824911F9A00C71A19 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6890BE0724911F9A00C71A19 /* HomeViewController.swift */; };
+		6890BE222491244600C71A19 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6890BE242491244600C71A19 /* Localizable.strings */; };
 		95D97982AAB505BC31D091F4 /* Pods_Surveyer_SurveyerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52E29B13BA5926FA7B326F61 /* Pods_Surveyer_SurveyerUITests.framework */; };
 		A9CA5A3F2EB44F6244660262 /* Pods_SurveyerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 323018BF5FFA46162FE5FDAA /* Pods_SurveyerTests.framework */; };
 /* End PBXBuildFile section */
@@ -53,6 +54,10 @@
 		6890BDF924911B9600C71A19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6890BE0524911F0800C71A19 /* SurveyNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyNavigationViewController.swift; sourceTree = "<group>"; };
 		6890BE0724911F9A00C71A19 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		6890BE0A249120C300C71A19 /* NotoSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Bold.ttf"; sourceTree = "<group>"; };
+		6890BE0B249120C300C71A19 /* NotoSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Regular.ttf"; sourceTree = "<group>"; };
+		6890BE232491244600C71A19 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		6890BE252491244700C71A19 /* th */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = th; path = th.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6C2D5685EE6EA7A9C60999F5 /* Pods-Surveyer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Surveyer.release.xcconfig"; path = "Target Support Files/Pods-Surveyer/Pods-Surveyer.release.xcconfig"; sourceTree = "<group>"; };
 		83855C512386F04063866D73 /* Pods-Surveyer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Surveyer.debug.xcconfig"; path = "Target Support Files/Pods-Surveyer/Pods-Surveyer.debug.xcconfig"; sourceTree = "<group>"; };
 		B894FC06E5E0ADA64FACA091 /* Pods-Surveyer-SurveyerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Surveyer-SurveyerUITests.release.xcconfig"; path = "Target Support Files/Pods-Surveyer-SurveyerUITests/Pods-Surveyer-SurveyerUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -127,9 +132,9 @@
 				6890BDD524911B9300C71A19 /* AppDelegate.swift */,
 				6890BE0524911F0800C71A19 /* SurveyNavigationViewController.swift */,
 				6890BE0724911F9A00C71A19 /* HomeViewController.swift */,
-				6890BDDE24911B9600C71A19 /* Assets.xcassets */,
 				6890BDE024911B9600C71A19 /* LaunchScreen.storyboard */,
 				6890BDE324911B9600C71A19 /* Info.plist */,
+				6890BE092491209700C71A19 /* Resources */,
 			);
 			path = Surveyer;
 			sourceTree = "<group>";
@@ -150,6 +155,41 @@
 				6890BDF924911B9600C71A19 /* Info.plist */,
 			);
 			path = SurveyerUITests;
+			sourceTree = "<group>";
+		};
+		6890BE092491209700C71A19 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6890BE1F2491242700C71A19 /* Localization */,
+				6890BDDE24911B9600C71A19 /* Assets.xcassets */,
+				6890BE0D249120CC00C71A19 /* Font */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		6890BE0C249120C700C71A19 /* Noto */ = {
+			isa = PBXGroup;
+			children = (
+				6890BE0A249120C300C71A19 /* NotoSans-Bold.ttf */,
+				6890BE0B249120C300C71A19 /* NotoSans-Regular.ttf */,
+			);
+			path = Noto;
+			sourceTree = "<group>";
+		};
+		6890BE0D249120CC00C71A19 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				6890BE0C249120C700C71A19 /* Noto */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		6890BE1F2491242700C71A19 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				6890BE242491244600C71A19 /* Localizable.strings */,
+			);
+			path = Localization;
 			sourceTree = "<group>";
 		};
 		B6E88256C87A11FFE5DE8072 /* Pods */ = {
@@ -256,6 +296,7 @@
 			knownRegions = (
 				en,
 				Base,
+				th,
 			);
 			mainGroup = 6890BDC924911B9300C71A19;
 			productRefGroup = 6890BDD324911B9300C71A19 /* Products */;
@@ -275,6 +316,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6890BDE224911B9600C71A19 /* LaunchScreen.storyboard in Resources */,
+				6890BE222491244600C71A19 /* Localizable.strings in Resources */,
 				6890BDDF24911B9600C71A19 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -449,6 +491,15 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		6890BE242491244600C71A19 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6890BE232491244600C71A19 /* en */,
+				6890BE252491244700C71A19 /* th */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -456,6 +507,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -516,6 +568,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -574,6 +627,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 93QF44Z6JU;
 				INFOPLIST_FILE = Surveyer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -593,6 +647,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 93QF44Z6JU;
 				INFOPLIST_FILE = Surveyer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
