@@ -10,13 +10,19 @@ import UIKit
 
 class HomeViewModel: NSObject {
     let dataSource: HomeSurveyDataSource
-    
+    var pagination: PageUtility!
+
     override init() {
         dataSource = HomeSurveyDataSource()
         super.init()
     }
     
-    
+    func getData() {
+        PostService.getSurveys { [weak self] (model, error) in
+            guard let `self` = self, let model = model else { return }
+            self.dataSource.data.value = model
+        }
+    }
 }
 
 class HomeSurveyDataSource: GenericDataSource<HotelModel>, UICollectionViewDataSource {

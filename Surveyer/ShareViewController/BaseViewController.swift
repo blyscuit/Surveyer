@@ -15,8 +15,10 @@ class BaseViewController: UIViewController {
         super.viewDidLoad()
         
         insertUIViews()
+        bindObservable()
     }
     
     func insertUIViews() {}
+    func bindObservable() {}
 
 }

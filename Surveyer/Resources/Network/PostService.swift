@@ -14,7 +14,7 @@ let baseURL = "https://nimble-survey-api.herokuapp.com/"
 class PostService {
     
     static func getSurveys(completionHandler: @escaping ([HotelModel]?, Error?) -> Void) {
-        let url = "https://jsonplaceholder.typicode.com/posts?userId=1"
+        let url = "https://jsonplaceholder.typicode.com/posts"
 //        let url = baseURL + "/surveys.json?page=1&per_page=1"
 
         Alamofire.request(url, method: .get, encoding: JSONEncoding.default).responseJSON(completionHandler: { response in
