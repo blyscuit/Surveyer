@@ -10,24 +10,34 @@ import UIKit
 
 class HomeViewController: BaseViewController {
     
-    var surveyCollectionView: UICollectionView?
+    lazy var surveyCollectionView: UICollectionView = {
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.scrollDirection = .vertical
+        let cv = UICollectionView(frame: view.bounds, collectionViewLayout: flowLayout)
+        cv.isPagingEnabled = true
+        return cv
+    }()
     
     lazy var pageControl: UIPageControl = {
         let pc = UIPageControl()
         pc.translatesAutoresizingMaskIntoConstraints = false
         return pc
     }()
+    
+    lazy var takeSurveyButton: LargeButton = {
+        let b = LargeButton()
+        b.translatesAutoresizingMaskIntoConstraints = false
+        return b
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = NSLocalizedString("Surveys", comment: "")
+        title = NSLocalizedString("home.header.surveys", comment: "")
     }
     
     override func insertUIViews() {
-        let surveyCollectionView = UICollectionView(frame: view.bounds, collectionViewLayout: UICollectionViewFlowLayout())
         view.addSubview(surveyCollectionView)
-        self.surveyCollectionView = surveyCollectionView
         
         view.addSubview(pageControl)
         pageControl.topAnchor.constraint(equalTo: view.topAnchor, constant: 20).isActive = true
@@ -36,6 +46,12 @@ class HomeViewController: BaseViewController {
         pageControl.transform = CGAffineTransform(rotationAngle: CGFloat(M_PI_2));
         pageControl.widthAnchor.constraint(equalToConstant: 20).isActive = true
         pageControl.numberOfPages = 10
+        
+        view.addSubview(takeSurveyButton)
+        takeSurveyButton.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: -20).isActive = true
+        takeSurveyButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        
+        takeSurveyButton.title = NSLocalizedString("home.mainButton", comment: "")
     }
 
 }

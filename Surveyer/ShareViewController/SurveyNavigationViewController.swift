@@ -16,7 +16,7 @@ class SurveyNavigationViewController: UINavigationController {
         super.viewDidLoad()
 
         navigationBar.barTintColor = .black
-        navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+        navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white, .font: UIFont.Button_NotoBold_16]
 
     }
 
