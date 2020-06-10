@@ -9,6 +9,13 @@
 import UIKit
 
 class HomeViewModel: NSObject {
+    let dataSource: HomeSurveyDataSource
+    
+    override init() {
+        dataSource = HomeSurveyDataSource()
+        super.init()
+    }
+    
     
 }
 
