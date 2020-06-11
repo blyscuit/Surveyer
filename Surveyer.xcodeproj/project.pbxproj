@@ -30,6 +30,8 @@
 		68D916BB24913386008CA628 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D916BA24913386008CA628 /* NetworkError.swift */; };
 		68D916BD249134CD008CA628 /* PageUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D916BC249134CD008CA628 /* PageUtility.swift */; };
 		68D916BF249137F2008CA628 /* HomeSurveyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D916BE249137F2008CA628 /* HomeSurveyCollectionViewCell.swift */; };
+		68D916C3249209D6008CA628 /* TokenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D916C2249209D6008CA628 /* TokenModel.swift */; };
+		68D916C524920BF1008CA628 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D916C424920BF1008CA628 /* UserManager.swift */; };
 		95D97982AAB505BC31D091F4 /* Pods_Surveyer_SurveyerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52E29B13BA5926FA7B326F61 /* Pods_Surveyer_SurveyerUITests.framework */; };
 		A9CA5A3F2EB44F6244660262 /* Pods_SurveyerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 323018BF5FFA46162FE5FDAA /* Pods_SurveyerTests.framework */; };
 /* End PBXBuildFile section */
@@ -84,6 +86,8 @@
 		68D916BA24913386008CA628 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		68D916BC249134CD008CA628 /* PageUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageUtility.swift; sourceTree = "<group>"; };
 		68D916BE249137F2008CA628 /* HomeSurveyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSurveyCollectionViewCell.swift; sourceTree = "<group>"; };
+		68D916C2249209D6008CA628 /* TokenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenModel.swift; sourceTree = "<group>"; };
+		68D916C424920BF1008CA628 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		6C2D5685EE6EA7A9C60999F5 /* Pods-Surveyer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Surveyer.release.xcconfig"; path = "Target Support Files/Pods-Surveyer/Pods-Surveyer.release.xcconfig"; sourceTree = "<group>"; };
 		83855C512386F04063866D73 /* Pods-Surveyer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Surveyer.debug.xcconfig"; path = "Target Support Files/Pods-Surveyer/Pods-Surveyer.debug.xcconfig"; sourceTree = "<group>"; };
 		B894FC06E5E0ADA64FACA091 /* Pods-Surveyer-SurveyerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Surveyer-SurveyerUITests.release.xcconfig"; path = "Target Support Files/Pods-Surveyer-SurveyerUITests/Pods-Surveyer-SurveyerUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -163,6 +167,9 @@
 				68D916B424912F2B008CA628 /* Model */,
 				68D916B124912F02008CA628 /* Utility */,
 				68D916A624912A13008CA628 /* Shared */,
+				68D916A924912A57008CA628 /* Constant.swift */,
+				68D916AB24912AF1008CA628 /* UIExtension.swift */,
+				68D916B7249131A6008CA628 /* Network */,
 				6890BE092491209700C71A19 /* Resources */,
 			);
 			path = Surveyer;
@@ -192,9 +199,6 @@
 				6890BE1F2491242700C71A19 /* Localization */,
 				6890BDDE24911B9600C71A19 /* Assets.xcassets */,
 				6890BE0D249120CC00C71A19 /* Font */,
-				68D916A924912A57008CA628 /* Constant.swift */,
-				68D916AB24912AF1008CA628 /* UIExtension.swift */,
-				68D916B7249131A6008CA628 /* Network */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -265,6 +269,7 @@
 			isa = PBXGroup;
 			children = (
 				68D916B524912F3C008CA628 /* HotelModel.swift */,
+				68D916C2249209D6008CA628 /* TokenModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -274,6 +279,7 @@
 			children = (
 				68D916B824913220008CA628 /* PostService.swift */,
 				68D916BA24913386008CA628 /* NetworkError.swift */,
+				68D916C424920BF1008CA628 /* UserManager.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -543,11 +549,13 @@
 				68D916A5249128FE008CA628 /* PageVerticalFlowLayout.swift in Sources */,
 				68D916B924913220008CA628 /* PostService.swift in Sources */,
 				6890BE0824911F9A00C71A19 /* HomeViewController.swift in Sources */,
+				68D916C3249209D6008CA628 /* TokenModel.swift in Sources */,
 				68D916B324912F15008CA628 /* DynamicValue.swift in Sources */,
 				68D916A824912A27008CA628 /* LargeButton.swift in Sources */,
 				68D916BF249137F2008CA628 /* HomeSurveyCollectionViewCell.swift in Sources */,
 				68D916AC24912AF1008CA628 /* UIExtension.swift in Sources */,
 				68D916BD249134CD008CA628 /* PageUtility.swift in Sources */,
+				68D916C524920BF1008CA628 /* UserManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

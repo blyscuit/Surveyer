@@ -76,6 +76,7 @@ class HomeViewController: BaseViewController {
             self?.surveyCollectionView.reloadData()
             self?.pageControl.numberOfPages = model.count
         }
+        
     }
 
     override func viewDidLayoutSubviews() {

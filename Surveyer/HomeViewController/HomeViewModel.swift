@@ -19,9 +19,11 @@ class HomeViewModel: NSObject {
     }
     
     func getData() {
-        PostService.getSurveys { [weak self] (model, error) in
-            guard let `self` = self, let model = model else { return }
-            self.dataSource.data.value = model
+        UserManager.fetchToken {
+            PostService.getSurveys { [weak self] (model, error) in
+                guard let `self` = self, let model = model else { return }
+                self.dataSource.data.value = model
+            }
         }
     }
 }
