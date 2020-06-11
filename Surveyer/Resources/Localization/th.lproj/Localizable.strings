@@ -7,3 +7,4 @@
 */
 "home.header.surveys" = "แบบสอบถาม";
 "home.mainButton" = "ทำแบบสอบถาม";
+"detail.value" = "จำนวนคำถาม:";

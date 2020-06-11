@@ -33,6 +33,10 @@ class HomeViewModel: NSObject {
         let page = reset ? 0 : pagination?.getNextPage() ?? 0
         networkStatus.value = .loadingMore
         
+        if reset {
+            self.pagination = nil
+        }
+        
         UserManager.fetchToken {
 
             self.dataRequest = PostService.getSurveys(page: page, perPage: self.perPage) { [weak self] (model, error) in

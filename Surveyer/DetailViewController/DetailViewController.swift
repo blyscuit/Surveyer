@@ -32,7 +32,6 @@ class DetailViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
     
     override func insertUIViews() {
@@ -47,7 +46,8 @@ class DetailViewController: BaseViewController {
             guard let `self` = self, let model = model else {
                 return
             }
-            self.titleLabel.text = "Total questions: \(model.questions?.count ?? 0)"
+            self.title = model.title
+            self.titleLabel.text = "\(NSLocalizedString("detail.value", comment: "")) \(model.questions?.count ?? 0)"
         }
     }
 

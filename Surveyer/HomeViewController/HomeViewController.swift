@@ -34,6 +34,7 @@ class HomeViewController: BaseViewController {
     lazy var takeSurveyButton: LargeButton = {
         let b = LargeButton()
         b.translatesAutoresizingMaskIntoConstraints = false
+        b.alpha = 0
         return b
     }()
 
@@ -71,15 +72,20 @@ class HomeViewController: BaseViewController {
         
         takeSurveyButton.addTarget(self, action: #selector(presentDetail(_:)), for: .touchUpInside)
         
+        let refreshButton = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refreshData))
+        self.navigationItem.leftBarButtonItem = refreshButton
         
+        let organizeButton = UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: nil)
+        self.navigationItem.rightBarButtonItem = organizeButton
     }
     
     override func bindObservable() {
         viewModel.dataSource.data.addObserver(self) { [weak self] (model) in
-//            DispatchQueue.main.async {
-                self?.surveyCollectionView.reloadData()
-                self?.pageControl.numberOfPages = model.count
-//            }
+            self?.surveyCollectionView.reloadData()
+            self?.pageControl.numberOfPages = model.count
+            UIView.animate(withDuration: 0.3) {
+                self?.takeSurveyButton.alpha = model.count == 0 ? 0 : 1
+            }
         }
         
     }

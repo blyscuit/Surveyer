@@ -7,3 +7,4 @@
 */
 "home.header.surveys" = "SURVEYS";
 "home.mainButton" = "Take the survey";
+"detail.value" = "Total questions:";
