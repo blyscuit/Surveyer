@@ -26,7 +26,7 @@ class HomeViewController: BaseViewController {
     }()
     
     lazy var pageControl: UIPageControl = {
-        let pc = UIPageControl()
+        let pc = BorderPageControl()
         pc.translatesAutoresizingMaskIntoConstraints = false
         return pc
     }()
@@ -81,7 +81,8 @@ class HomeViewController: BaseViewController {
     
     override func bindObservable() {
         viewModel.dataSource.data.addObserver(self) { [weak self] (model) in
-            self?.surveyCollectionView.reloadData()
+            // use reloadSections instead of reloadData
+            self?.surveyCollectionView.reloadSections([0])
             self?.pageControl.numberOfPages = model.count
             UIView.animate(withDuration: 0.3) {
                 self?.takeSurveyButton.alpha = model.count == 0 ? 0 : 1

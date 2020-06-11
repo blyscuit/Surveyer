@@ -28,7 +28,7 @@ class HomeViewModel: NSObject {
         
         dataRequest?.cancel()
         
-        if let pagination = pagination, pagination.isLastPage() { return }
+        if let pagination = pagination, pagination.isLastPage(), reset == false { return }
 
         let page = reset ? 0 : pagination?.getNextPage() ?? 0
         networkStatus.value = .loadingMore
@@ -87,8 +87,10 @@ class HomeSurveyDataSource: GenericDataSource<HotelModel>, UICollectionViewDataS
         // bind cell here or in Cell class with a custom method
         cell?.titleLabel.text = model.title
         cell?.descriptionLabel.text = model.description
-        if let text = model.coverImageUrl, let url = URL(string: text) {
+        if let text = model.coverImageUrl, let url = URL(string: text), let urlLarge = URL(string: text+"l") {
+            // it should be a more robust method of: if large finish first then we cancel small, or if network is slow never do large.
             cell?.imageView.af_setImage(withURL: url)
+            cell?.imageView.af_setImage(withURL: urlLarge)
         }
         return cell ?? UICollectionViewCell()
     }
