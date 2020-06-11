@@ -16,6 +16,10 @@ class SurveyNavigationViewController: UINavigationController {
         super.viewDidLoad()
 
         navigationBar.barTintColor = .black
+        navigationBar.tintColor = .white
+        let barButtonAppearance =
+            UIBarButtonItem.appearance(whenContainedInInstancesOf: [SurveyNavigationViewController.self])
+        barButtonAppearance.setTitleTextAttributes([.foregroundColor: UIColor.white, .font: UIFont.Button_NotoBold_16], for: .normal)
         navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white, .font: UIFont.Button_NotoBold_16]
 
     }

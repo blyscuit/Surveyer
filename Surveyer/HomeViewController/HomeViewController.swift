@@ -68,14 +68,18 @@ class HomeViewController: BaseViewController {
         surveyCollectionView.showsVerticalScrollIndicator = false
         
         (surveyCollectionView.collectionViewLayout as? UICollectionViewFlowLayout)?.itemSize = self.surveyCollectionView.bounds.size
+        
+        takeSurveyButton.addTarget(self, action: #selector(presentDetail(_:)), for: .touchUpInside)
+        
+        
     }
     
     override func bindObservable() {
         viewModel.dataSource.data.addObserver(self) { [weak self] (model) in
-            DispatchQueue.main.async {
+//            DispatchQueue.main.async {
                 self?.surveyCollectionView.reloadData()
                 self?.pageControl.numberOfPages = model.count
-            }
+//            }
         }
         
     }
@@ -87,6 +91,13 @@ class HomeViewController: BaseViewController {
     
     @objc func refreshData(_ sender: UIControl) {
         viewModel.getData()
+    }
+    
+    @objc func presentDetail(_ sender: UIControl) {
+        guard let model = viewModel.modelAtIndex(pageControl.currentPage) else { return }
+        let vc = DetailViewController()
+        vc.viewModel.hotelModel.value = model
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
