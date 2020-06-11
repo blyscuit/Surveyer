@@ -77,6 +77,7 @@ class HomeViewController: BaseViewController {
                 self?.pageControl.numberOfPages = model.count
             }
         }
+        
     }
 
     override func viewDidLayoutSubviews() {

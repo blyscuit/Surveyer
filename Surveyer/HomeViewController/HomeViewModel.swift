@@ -42,7 +42,6 @@ class HomeViewModel: NSObject {
                 return
             }
             if reset || self.pagination == nil {
-                self.dataSource.data.value = model
                 self.pagination = PageUtility(page: page, perPage: self.perPage)
             } else {
                 self.pagination.page = page
@@ -55,6 +54,8 @@ class HomeViewModel: NSObject {
                 self.pagination.totalPage = self.pagination.page
             }
             self.networkStatus.value = .none
+            self.networkStatus.value = .none
+        }
         }
     }
 }
