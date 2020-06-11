@@ -48,11 +48,10 @@ class HomeViewController: BaseViewController {
         view.addSubview(surveyCollectionView)
         
         view.addSubview(pageControl)
-        pageControl.topAnchor.constraint(equalTo: view.topAnchor, constant: 20).isActive = true
         pageControl.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
-        pageControl.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 20).isActive = true
         pageControl.transform = CGAffineTransform(rotationAngle: CGFloat(M_PI_2));
         pageControl.widthAnchor.constraint(equalToConstant: 20).isActive = true
+        pageControl.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         
         view.addSubview(takeSurveyButton)
         takeSurveyButton.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: -20).isActive = true
@@ -69,8 +68,10 @@ class HomeViewController: BaseViewController {
     
     override func bindObservable() {
         viewModel.dataSource.data.addObserver(self) { [weak self] (model) in
-            self?.surveyCollectionView.reloadData()
-            self?.pageControl.numberOfPages = model.count
+            DispatchQueue.main.async {
+                self?.surveyCollectionView.reloadData()
+                self?.pageControl.numberOfPages = model.count
+            }
         }
     }
 
@@ -90,5 +91,10 @@ extension HomeViewController: UICollectionViewDelegate {
         let w = scrollView.bounds.size.height
         let currentPage = Int(ceil(x/w))
         pageControl.currentPage = currentPage
+        
+        // -4 or any number that make sense
+        if currentPage > viewModel.dataSource.data.value.count - 4 {
+            viewModel.getData(reset: false)
+        }
     }
 }

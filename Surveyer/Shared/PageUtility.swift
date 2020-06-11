@@ -37,6 +37,7 @@ class PageUtility: Mappable {
     init(page: Int, perPage: Int) {
         self.page = page
         self.perpage = perPage
+        self.totalPage = Int.max
     }
 }
 
