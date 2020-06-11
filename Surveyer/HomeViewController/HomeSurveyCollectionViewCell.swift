@@ -31,6 +31,7 @@ class HomeSurveyCollectionViewCell: UICollectionViewCell {
     lazy var titleLabel: UILabel = {
        let l = UILabel()
         l.font = .Title_NotoBold_24
+        l.textAlignment = .center
         l.textColor = .white
         return l
     }()
@@ -40,6 +41,7 @@ class HomeSurveyCollectionViewCell: UICollectionViewCell {
         // TODO: Find right unmber
         l.numberOfLines = 3
         l.font = .Body2_NotoRegular_14
+        l.textAlignment = .center
         l.textColor = .white
         return l
     }()
@@ -73,12 +75,12 @@ class HomeSurveyCollectionViewCell: UICollectionViewCell {
         blurEffectView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
         
         self.addSubview(stackView)
-        stackView.topAnchor.constraint(equalTo: topAnchor, constant: 100).isActive = true
+        stackView.topAnchor.constraint(equalTo: topAnchor, constant: 40).isActive = true
         stackView.rightAnchor.constraint(equalTo: rightAnchor, constant: -20).isActive = true
         stackView.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor, constant: 0).isActive = true
         stackView.leftAnchor.constraint(equalTo: leftAnchor, constant: 20).isActive = true
         
-        blurEffectView.bottomAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 20).isActive = true
+        blurEffectView.bottomAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 40).isActive = true
         
         stackView.addArrangedSubview(titleLabel)
         stackView.addArrangedSubview(descriptionLabel)

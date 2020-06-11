@@ -16,7 +16,8 @@ class HomeViewController: BaseViewController {
         let flowLayout: UICollectionViewFlowLayout = {
             let fl = UICollectionViewFlowLayout()
             fl.scrollDirection = .vertical
-            fl.itemSize = self.view.bounds.size
+            fl.minimumLineSpacing = 0
+            fl.minimumInteritemSpacing = 0
             return fl
         }()
         let cv = UICollectionView(frame: view.bounds, collectionViewLayout: flowLayout)
@@ -40,6 +41,7 @@ class HomeViewController: BaseViewController {
         super.viewDidLoad()
         
         title = NSLocalizedString("home.header.surveys", comment: "")
+        edgesForExtendedLayout = []
         
         viewModel.getData()
     }
@@ -64,7 +66,9 @@ class HomeViewController: BaseViewController {
         
         surveyCollectionView.dataSource = viewModel.dataSource
         surveyCollectionView.delegate = self
+        surveyCollectionView.showsVerticalScrollIndicator = false
         
+        (surveyCollectionView.collectionViewLayout as? UICollectionViewFlowLayout)?.itemSize = self.surveyCollectionView.bounds.size
     }
     
     override func bindObservable() {
