@@ -9,8 +9,13 @@
 import UIKit
 
 class HomeViewController: BaseViewController {
+
+    let dataSource = HomeSurveyDataSource()
     
-    let viewModel = HomeViewModel()
+    lazy var viewModel : HomeViewModel = {
+        let viewModel = HomeViewModel(dataSource: dataSource)
+        return viewModel
+    }()
     
     lazy var surveyCollectionView: UICollectionView = {
         let flowLayout: UICollectionViewFlowLayout = {
@@ -64,7 +69,7 @@ class HomeViewController: BaseViewController {
         
         surveyCollectionView.register(HomeSurveyCollectionViewCell.self, forCellWithReuseIdentifier: HomeSurveyCollectionViewCell.reuseId)
         
-        surveyCollectionView.dataSource = viewModel.dataSource
+        surveyCollectionView.dataSource = dataSource
         surveyCollectionView.delegate = self
         surveyCollectionView.showsVerticalScrollIndicator = false
         
@@ -80,7 +85,7 @@ class HomeViewController: BaseViewController {
     }
     
     override func bindObservable() {
-        viewModel.dataSource.data.addObserver(self) { [weak self] (model) in
+        viewModel.dataSource?.data.addObserver(self) { [weak self] (model) in
             // use reloadSections instead of reloadData
             self?.surveyCollectionView.reloadSections([0])
             self?.pageControl.numberOfPages = model.count
@@ -116,7 +121,7 @@ extension HomeViewController: UICollectionViewDelegate {
         pageControl.currentPage = currentPage
         
         // -4 or any number that make sense
-        if currentPage > viewModel.dataSource.data.value.count - 4 {
+        if currentPage > viewModel.getModelCount() - 4 {
             viewModel.getData(reset: false)
         }
     }

@@ -20,9 +20,12 @@ class UserManagerInstance: NSObject {
     static var share: UserManagerInstance = UserManagerInstance()
     var token: TokenModel?
     
+    var service: TokenServiceProtocol?
+    
     override init() {
         super.init()
         loadUser()
+        service = TokenService()
     }
     
     func saveToken(token: TokenModel?) -> Bool {
@@ -60,7 +63,7 @@ class UserManagerInstance: NSObject {
         }
         
         if round < 3 {
-            let _ = PostService.postLogin(username: "carlos@nimbl3.com", password: "antikera") { [weak self] (tokenModel, error) in
+            let _ = service?.postLogin(username: "carlos@nimbl3.com", password: "antikera") { [weak self] (tokenModel, error) in
                 guard let `self` = self else { return }
                 if error != nil {
                     self.fetchToken(round: round+1, completionHandler: completionHandler)

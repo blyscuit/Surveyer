@@ -12,8 +12,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         let homeViewController = HomeViewController()
@@ -25,7 +24,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
-
-
 }
 
+#if DEBUG
+let baseURL = "https://nimble-survey-api.herokuapp.com/"
+#else
+let baseURL = "https://nimble-survey-api.herokuapp.com/"
+#endif

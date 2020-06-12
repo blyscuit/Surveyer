@@ -1,19 +1,25 @@
 //
-//  PostService.swift
+//  SurveyService.swift
 //  Surveyer
 //
-//  Created by Pisit W on 10/6/2563 BE.
+//  Created by Pisit W on 12/6/2563 BE.
 //  Copyright © 2563 blyscuit. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import Alamofire
 
-let baseURL = "https://nimble-survey-api.herokuapp.com/"
+protocol SurveyServiceProtocol : class {
+    func getSurveys(page: Int, perPage: Int, completionHandler: @escaping ([HotelModel]?, Error?) -> Void) -> Alamofire.Request
+}
 
-class PostService {
+final class SurveyService : SurveyServiceProtocol {
     
-    static func getSurveys(page: Int = 0, perPage: Int = 10, completionHandler: @escaping ([HotelModel]?, Error?) -> Void) -> Alamofire.Request {
+    static let shared = SurveyService()
+    
+    let endpoint = baseURL
+    
+    func getSurveys(page: Int = 0, perPage: Int = 10, completionHandler: @escaping ([HotelModel]?, Error?) -> Void) -> Request {
         let url = baseURL + "surveys.json?page=\(page)&per_page=\(perPage)"
         let params = ["access_token": UserManager.getAccessToken()]
 
@@ -45,29 +51,5 @@ class PostService {
             }
         })
     }
-    
 
-        
-    static func postLogin(username: String, password: String, completionHandler: @escaping (TokenModel?, Error?) -> Void) -> Alamofire.Request {
-//        let url = "https://jsonplaceholder.typicode.com/posts"
-        let url = baseURL + "oauth/token"
-        let params = ["grant_type": "password", "username": username, "password": password]
-
-        return Alamofire.request(url, method: .post, parameters: params).responseJSON(completionHandler: { response in
-            
-            if let data = response.result.value as? [String : Any] {
-                
-                print(data)
-
-                if let tokenModel = TokenModel(JSON: data), tokenModel.accessToken != nil {
-                    completionHandler(tokenModel, nil)
-                } else if let error = NetworkError(JSON: data) {
-                    completionHandler(nil, error)
-                }
-                
-            } else {
-                completionHandler(nil, NetworkError.init(description: "Error", code: response.response?.statusCode))
-            }
-        })
-    }
 }

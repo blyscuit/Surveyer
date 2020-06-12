@@ -11,16 +11,18 @@ import AlamofireImage
 import Alamofire
 
 class HomeViewModel: NSObject {
-    let dataSource: HomeSurveyDataSource
+    let dataSource: GenericDataSource<HotelModel>?
     var pagination: PageUtility!
     var dataRequest: Alamofire.Request?
     var networkStatus: DynamicValue<NetworkState> = DynamicValue(.none)
     
     private var perPage = 10
 
-    override init() {
-        dataSource = HomeSurveyDataSource()
-        super.init()
+    weak var service: SurveyServiceProtocol?
+
+    init(service: SurveyServiceProtocol = SurveyService.shared, dataSource: GenericDataSource<HotelModel>?) {
+        self.dataSource = dataSource
+        self.service = service
     }
     
     func getData(reset: Bool = true) {
@@ -39,7 +41,7 @@ class HomeViewModel: NSObject {
         
         UserManager.fetchToken {
 
-            self.dataRequest = PostService.getSurveys(page: page, perPage: self.perPage) { [weak self] (model, error) in
+            self.dataRequest = self.service?.getSurveys(page: page, perPage: self.perPage) { [weak self] (model, error) in
                 guard let `self` = self else {
                     return
                 }
@@ -49,11 +51,11 @@ class HomeViewModel: NSObject {
                 }
                 if reset || self.pagination == nil {
                     self.pagination = PageUtility(page: page, perPage: self.perPage)
-                    self.dataSource.data.value = model
+                    self.dataSource?.data.value = model
                 } else {
                     self.pagination.page = page
                     self.pagination.perpage = self.perPage
-                    self.dataSource.data.value.append(contentsOf: model)
+                    self.dataSource?.data.value.append(contentsOf: model)
                 }
                 // baecause I don't know how API will handle last page, normally they could send total page value.
                 if error == nil, model.count == 0 {
@@ -66,6 +68,7 @@ class HomeViewModel: NSObject {
     }
     
     func modelAtIndex(_ index: Int) -> HotelModel? {
+        guard let dataSource = dataSource else { return nil }
         if dataSource.data.value.count == 0 {
             return nil
         } else if (dataSource.data.value.count - 1) < index {
@@ -73,6 +76,11 @@ class HomeViewModel: NSObject {
         } else {
             return dataSource.data.value[index]
         }
+    }
+    
+    func getModelCount() -> Int {
+        guard let dataSource = dataSource else { return 0 }
+        return dataSource.data.value.count
     }
 }
 
