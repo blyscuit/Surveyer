@@ -19,6 +19,9 @@
 		6890BE272491255800C71A19 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6890BE262491255800C71A19 /* BaseViewController.swift */; };
 		68C8566F2493353600919C14 /* SurveyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C8566E2493353600919C14 /* SurveyService.swift */; };
 		68C8567124933F7700919C14 /* TokenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C8567024933F7700919C14 /* TokenService.swift */; };
+		68C85675249345B400919C14 /* SurveyViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C85674249345B400919C14 /* SurveyViewModelTest.swift */; };
+		68C8567724934BD700919C14 /* HomeSurveyDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C8567624934BD700919C14 /* HomeSurveyDataSource.swift */; };
+		68C8567924934C8A00919C14 /* SurveyDataSourceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C8567824934C8A00919C14 /* SurveyDataSourceTest.swift */; };
 		68D916A5249128FE008CA628 /* PageVerticalFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D916A4249128FE008CA628 /* PageVerticalFlowLayout.swift */; };
 		68D916A824912A27008CA628 /* LargeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D916A724912A27008CA628 /* LargeButton.swift */; };
 		68D916AA24912A57008CA628 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D916A924912A57008CA628 /* Constant.swift */; };
@@ -82,6 +85,9 @@
 		6890BE262491255800C71A19 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		68C8566E2493353600919C14 /* SurveyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyService.swift; sourceTree = "<group>"; };
 		68C8567024933F7700919C14 /* TokenService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenService.swift; sourceTree = "<group>"; };
+		68C85674249345B400919C14 /* SurveyViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyViewModelTest.swift; sourceTree = "<group>"; };
+		68C8567624934BD700919C14 /* HomeSurveyDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSurveyDataSource.swift; sourceTree = "<group>"; };
+		68C8567824934C8A00919C14 /* SurveyDataSourceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyDataSourceTest.swift; sourceTree = "<group>"; };
 		68D916A4249128FE008CA628 /* PageVerticalFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageVerticalFlowLayout.swift; sourceTree = "<group>"; };
 		68D916A724912A27008CA628 /* LargeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeButton.swift; sourceTree = "<group>"; };
 		68D916A924912A57008CA628 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
@@ -190,6 +196,8 @@
 			isa = PBXGroup;
 			children = (
 				6890BDEC24911B9600C71A19 /* SurveyerTests.swift */,
+				68C85674249345B400919C14 /* SurveyViewModelTest.swift */,
+				68C8567824934C8A00919C14 /* SurveyDataSourceTest.swift */,
 				6890BDEE24911B9600C71A19 /* Info.plist */,
 			);
 			path = SurveyerTests;
@@ -263,6 +271,7 @@
 			children = (
 				6890BE0724911F9A00C71A19 /* HomeViewController.swift */,
 				68D916AF24912ED7008CA628 /* HomeViewModel.swift */,
+				68C8567624934BD700919C14 /* HomeSurveyDataSource.swift */,
 				68D916BE249137F2008CA628 /* HomeSurveyCollectionViewCell.swift */,
 				68D916B524912F3C008CA628 /* HotelModel.swift */,
 			);
@@ -575,6 +584,7 @@
 				68D916BB24913386008CA628 /* NetworkError.swift in Sources */,
 				68D916B624912F3C008CA628 /* HotelModel.swift in Sources */,
 				68D916CF24921F05008CA628 /* DetailViewModel.swift in Sources */,
+				68C8567724934BD700919C14 /* HomeSurveyDataSource.swift in Sources */,
 				68D916B024912ED7008CA628 /* HomeViewModel.swift in Sources */,
 				6890BE0624911F0800C71A19 /* SurveyNavigationViewController.swift in Sources */,
 				6890BE272491255800C71A19 /* BaseViewController.swift in Sources */,
@@ -599,7 +609,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68C85675249345B400919C14 /* SurveyViewModelTest.swift in Sources */,
 				6890BDED24911B9600C71A19 /* SurveyerTests.swift in Sources */,
+				68C8567924934C8A00919C14 /* SurveyDataSourceTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -26,6 +26,12 @@ class HomeViewModel: NSObject {
     }
     
     func getData(reset: Bool = true) {
+        
+        guard let service = service else {
+            networkStatus.value = .error
+            return
+        }
+        
         if networkStatus.value == .loadingMore { return }
         
         dataRequest?.cancel()
@@ -41,7 +47,7 @@ class HomeViewModel: NSObject {
         
         UserManager.fetchToken {
 
-            self.dataRequest = self.service?.getSurveys(page: page, perPage: self.perPage) { [weak self] (model, error) in
+            self.dataRequest = service.getSurveys(page: page, perPage: self.perPage) { [weak self] (model, error) in
                 guard let `self` = self else {
                     return
                 }
@@ -81,25 +87,5 @@ class HomeViewModel: NSObject {
     func getModelCount() -> Int {
         guard let dataSource = dataSource else { return 0 }
         return dataSource.data.value.count
-    }
-}
-
-class HomeSurveyDataSource: GenericDataSource<HotelModel>, UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return data.value.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeSurveyCollectionViewCell.reuseId, for: indexPath) as? HomeSurveyCollectionViewCell
-        let model = data.value[indexPath.row]
-        // bind cell here or in Cell class with a custom method
-        cell?.titleLabel.text = model.title
-        cell?.descriptionLabel.text = model.description
-        if let text = model.coverImageUrl, let url = URL(string: text), let urlLarge = URL(string: text+"l") {
-            // it should be a more robust method of: if large finish first then we cancel small, or if network is slow never do large.
-            cell?.imageView.af_setImage(withURL: url)
-            cell?.imageView.af_setImage(withURL: urlLarge)
-        }
-        return cell ?? UICollectionViewCell()
     }
 }
