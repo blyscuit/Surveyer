@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/pattadon/Documents/Surveyer/Surveyer/DetailViewController/DetailViewModel.swift">
-   </FileRef>
-   <FileRef
       location = "group:Surveyer.xcodeproj">
    </FileRef>
    <FileRef

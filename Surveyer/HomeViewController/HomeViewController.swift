@@ -40,6 +40,7 @@ class HomeViewController: BaseViewController {
         let b = LargeButton()
         b.translatesAutoresizingMaskIntoConstraints = false
         b.alpha = 0
+        b.accessibilityIdentifier = "home.mainButton"
         return b
     }()
 
