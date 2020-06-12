@@ -8,3 +8,7 @@
 "home.header.surveys" = "แบบสอบถาม";
 "home.mainButton" = "ทำแบบสอบถาม";
 "detail.value" = "จำนวนคำถาม:";
+
+"base.error.title" = "เกิดข้อผิดพลาด";
+"base.error.message" = "โปรดลองอีกครั้ง";
+"base.error.ok" = "ตกลง";

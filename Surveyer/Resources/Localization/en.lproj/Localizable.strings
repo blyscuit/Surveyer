@@ -8,3 +8,7 @@
 "home.header.surveys" = "SURVEYS";
 "home.mainButton" = "Take the survey";
 "detail.value" = "Total questions:";
+
+"base.error.title" = "Error occur";
+"base.error.message" = "Please try again later.";
+"base.error.ok" = "Ok";

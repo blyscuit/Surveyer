@@ -18,9 +18,16 @@ class BaseViewController: UIViewController {
         
         insertUIViews()
         bindObservable()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(showUniversalErrorPopup), name: tokenFetchError, object: nil)
     }
     
     func insertUIViews() {}
     func bindObservable() {}
 
+    @objc func showUniversalErrorPopup() {
+        let alert = UIAlertController(title: "base.error.title", message: "base.error.message", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "base.error.ok", style: .default, handler: nil))
+        self.present(alert, animated: true)
+    }
 }

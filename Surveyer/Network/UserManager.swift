@@ -13,6 +13,7 @@ import SwiftKeychainWrapper
 
 var UserManager = UserManagerInstance.share
 let userJsonKey = "USER_JSON_KEY"
+let tokenFetchError = Notification.Name("tokenFetchError")
 
 class UserManagerInstance: NSObject {
     
@@ -74,6 +75,7 @@ class UserManagerInstance: NSObject {
             }
         } else {
             // some kind of error popup here
+            NotificationCenter.default.post(name: tokenFetchError, object: nil)
         }
     }
     

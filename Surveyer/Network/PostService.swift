@@ -59,13 +59,14 @@ class PostService {
                 
                 print(data)
 
-                let tokenModel = TokenModel(JSON: data)
-                
-                completionHandler(tokenModel, nil)
+                if let tokenModel = TokenModel(JSON: data), tokenModel.accessToken != nil {
+                    completionHandler(tokenModel, nil)
+                } else if let error = NetworkError(JSON: data) {
+                    completionHandler(nil, error)
+                }
                 
             } else {
                 completionHandler(nil, NetworkError.init(description: "Error", code: response.response?.statusCode))
-                
             }
         })
     }
