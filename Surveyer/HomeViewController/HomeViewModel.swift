@@ -10,7 +10,7 @@ import UIKit
 import AlamofireImage
 import Alamofire
 
-class HomeViewModel: NSObject {
+class HomeViewModel {
     let dataSource: GenericDataSource<HotelModel>?
     var pagination: PageUtility!
     var dataRequest: Alamofire.Request?
