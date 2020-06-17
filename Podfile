@@ -6,7 +6,8 @@ target 'Surveyer' do
   use_frameworks!
 
   # Pods for Surveyer
-  pod 'AlamofireImage', '~> 3.5'
+  pod 'AlamofireImage', '~> 4.0'
+  pod 'Alamofire', '~> 5.0'
   pod 'ObjectMapper'
   pod 'SwiftyJSON', '~> 4.0'
   pod 'SwiftKeychainWrapper'

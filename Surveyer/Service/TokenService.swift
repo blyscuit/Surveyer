@@ -23,9 +23,9 @@ final class TokenService : TokenServiceProtocol {
         let url = endpoint + "oauth/token"
         let params = ["grant_type": "password", "username": username, "password": password]
 
-        return Alamofire.request(url, method: .post, parameters: params).responseJSON(completionHandler: { response in
+        return AF.request(url, method: .post, parameters: params).responseJSON(completionHandler: { response in
             
-            if let data = response.result.value as? [String : Any] {
+            if let data = response.value as? [String : Any] {
                 
                 print(data)
 

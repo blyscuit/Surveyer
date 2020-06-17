@@ -23,9 +23,9 @@ final class SurveyService : SurveyServiceProtocol {
         let url = baseURL + "surveys.json?page=\(page)&per_page=\(perPage)"
         let params = ["access_token": UserManager.getAccessToken()]
 
-        return Alamofire.request(url, method: .get, parameters: params).responseJSON(completionHandler: { response in
+        return AF.request(url, method: .get, parameters: params).responseJSON(completionHandler: { response in
             
-            if let data = response.result.value {
+            let data = response.value
                 
                 guard let jsonResponse = data as? NSArray else {
                 completionHandler(nil, NetworkError.init(description: "Parsing error", code: response.response?.statusCode))
@@ -45,10 +45,6 @@ final class SurveyService : SurveyServiceProtocol {
                 
                 completionHandler(listPosts, nil)
                 
-            } else {
-                completionHandler(nil, NetworkError.init(description: "Error", code: response.response?.statusCode))
-                
-            }
         })
     }
 
