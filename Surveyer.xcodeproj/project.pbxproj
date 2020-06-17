@@ -17,6 +17,7 @@
 		6890BE0824911F9A00C71A19 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6890BE0724911F9A00C71A19 /* HomeViewController.swift */; };
 		6890BE222491244600C71A19 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6890BE242491244600C71A19 /* Localizable.strings */; };
 		6890BE272491255800C71A19 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6890BE262491255800C71A19 /* BaseViewController.swift */; };
+		68C5F1EC249A44DE00D4E17A /* ResponseArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C5F1EB249A44DE00D4E17A /* ResponseArray.swift */; };
 		68C8566F2493353600919C14 /* SurveyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C8566E2493353600919C14 /* SurveyService.swift */; };
 		68C8567124933F7700919C14 /* TokenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C8567024933F7700919C14 /* TokenService.swift */; };
 		68C85675249345B400919C14 /* SurveyViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C85674249345B400919C14 /* SurveyViewModelTest.swift */; };
@@ -83,6 +84,7 @@
 		6890BE232491244600C71A19 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6890BE252491244700C71A19 /* th */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = th; path = th.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6890BE262491255800C71A19 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		68C5F1EB249A44DE00D4E17A /* ResponseArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseArray.swift; sourceTree = "<group>"; };
 		68C8566E2493353600919C14 /* SurveyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyService.swift; sourceTree = "<group>"; };
 		68C8567024933F7700919C14 /* TokenService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenService.swift; sourceTree = "<group>"; };
 		68C85674249345B400919C14 /* SurveyViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyViewModelTest.swift; sourceTree = "<group>"; };
@@ -311,6 +313,7 @@
 				68D916C724921C8E008CA628 /* NetworkState.swift */,
 				68D916BA24913386008CA628 /* NetworkError.swift */,
 				68D916C424920BF1008CA628 /* UserManager.swift */,
+				68C5F1EB249A44DE00D4E17A /* ResponseArray.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -583,6 +586,7 @@
 				68D916AA24912A57008CA628 /* Constant.swift in Sources */,
 				68D916BB24913386008CA628 /* NetworkError.swift in Sources */,
 				68D916B624912F3C008CA628 /* HotelModel.swift in Sources */,
+				68C5F1EC249A44DE00D4E17A /* ResponseArray.swift in Sources */,
 				68D916CF24921F05008CA628 /* DetailViewModel.swift in Sources */,
 				68C8567724934BD700919C14 /* HomeSurveyDataSource.swift in Sources */,
 				68D916B024912ED7008CA628 /* HomeViewModel.swift in Sources */,

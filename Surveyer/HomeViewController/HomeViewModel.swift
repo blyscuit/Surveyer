@@ -53,6 +53,7 @@ class HomeViewModel {
                 }
                 switch result {
                 case .success(let model):
+                    guard let model = model else { return }
                     if reset || self.pagination == nil {
                         self.pagination = PageUtility(page: page, perPage: self.perPage)
                         self.dataSource?.data.value = model
