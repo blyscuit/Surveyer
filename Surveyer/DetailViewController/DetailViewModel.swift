@@ -9,4 +9,5 @@ import UIKit
 
 class DetailViewModel {
     var hotelModel: DynamicValue<HotelModel?> = DynamicValue(nil)
+    
 }
