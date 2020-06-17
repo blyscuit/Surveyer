@@ -102,7 +102,7 @@
 		68D916C424920BF1008CA628 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		68D916C724921C8E008CA628 /* NetworkState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkState.swift; sourceTree = "<group>"; };
 		68D916CA24921E1E008CA628 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		68D916CE24921F05008CA628 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailViewModel.swift; path = /Users/pattadon/Documents/Surveyer/Surveyer/DetailViewController/DetailViewModel.swift; sourceTree = "<absolute>"; };
+		68D916CE24921F05008CA628 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		68D916D024922D73008CA628 /* BorderPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderPageControl.swift; sourceTree = "<group>"; };
 		6C2D5685EE6EA7A9C60999F5 /* Pods-Surveyer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Surveyer.release.xcconfig"; path = "Target Support Files/Pods-Surveyer/Pods-Surveyer.release.xcconfig"; sourceTree = "<group>"; };
 		83855C512386F04063866D73 /* Pods-Surveyer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Surveyer.debug.xcconfig"; path = "Target Support Files/Pods-Surveyer/Pods-Surveyer.debug.xcconfig"; sourceTree = "<group>"; };
