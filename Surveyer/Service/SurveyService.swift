@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 
 protocol SurveyServiceProtocol : class {
-    func getSurveys(page: Int, perPage: Int, completionHandler: @escaping ([HotelModel]?, Error?) -> Void) -> Alamofire.Request
+    func getSurveys(page: Int, perPage: Int, completionHandler: @escaping (Result<[HotelModel], Error>) -> Void) -> Alamofire.Request
 }
 
 final class SurveyService : SurveyServiceProtocol {
@@ -19,32 +19,22 @@ final class SurveyService : SurveyServiceProtocol {
     
     let endpoint = baseURL
     
-    func getSurveys(page: Int = 0, perPage: Int = 10, completionHandler: @escaping ([HotelModel]?, Error?) -> Void) -> Request {
+    func getSurveys(page: Int = 0, perPage: Int = 10, completionHandler: @escaping (Result<[HotelModel], Error>) -> Void) -> Alamofire.Request {
         let url = baseURL + "surveys.json?page=\(page)&per_page=\(perPage)"
         let params = ["access_token": UserManager.getAccessToken()]
 
         return AF.request(url, method: .get, parameters: params).responseJSON(completionHandler: { response in
-            
-            let data = response.value
-                
-                guard let jsonResponse = data as? NSArray else {
-                completionHandler(nil, NetworkError.init(description: "Parsing error", code: response.response?.statusCode))
-                    return
-                }
-                print(jsonResponse)
-                let dictionaryItems = jsonResponse as? [[String: Any]]
-                
-                guard let arrayItems = dictionaryItems else {
-                    completionHandler(nil, NetworkError.init(description: "Parsing error", code: response.response?.statusCode))
-                    return
-                }
-                
-                let listPosts = arrayItems.map({ (dic) -> HotelModel in
+
+            if let dictionaryItems = response.value as? [[String: Any]] {
+                let listPosts = dictionaryItems.map({ (dic) -> HotelModel in
                     return HotelModel(JSON: dic)!
                 })
-                
-                completionHandler(listPosts, nil)
-                
+                completionHandler(.success(listPosts))
+            } else if let error = response.error {
+                completionHandler(.failure(error))
+            } else {
+                completionHandler(.failure(NetworkError.init(description: "", code: 500)))
+            }
         })
     }
 

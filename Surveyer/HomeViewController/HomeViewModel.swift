@@ -47,30 +47,32 @@ class HomeViewModel {
         
         UserManager.fetchToken {
 
-            self.dataRequest = service.getSurveys(page: page, perPage: self.perPage) { [weak self] (model, error) in
+            self.dataRequest = service.getSurveys(page: page, perPage: self.perPage, completionHandler: { [weak self] (result) in
                 guard let `self` = self else {
                     return
                 }
-                guard let model = model else {
-                    self.networkStatus.value = .error
-                    return
+                switch result {
+                case .success(let model):
+                    if reset || self.pagination == nil {
+                        self.pagination = PageUtility(page: page, perPage: self.perPage)
+                        self.dataSource?.data.value = model
+                    } else {
+                        self.pagination.page = page
+                        self.pagination.perpage = self.perPage
+                        self.dataSource?.data.value.append(contentsOf: model)
+                    }
+                    
+                    if model.count == 0 {
+                        // last page
+                        self.pagination.totalPage = self.pagination.page
+                    }
+                case .failure(let error):
+                    break
+                    // show error
                 }
-                if reset || self.pagination == nil {
-                    self.pagination = PageUtility(page: page, perPage: self.perPage)
-                    self.dataSource?.data.value = model
-                } else {
-                    self.pagination.page = page
-                    self.pagination.perpage = self.perPage
-                    self.dataSource?.data.value.append(contentsOf: model)
-                }
-                // baecause I don't know how API will handle last page, normally they could send total page value.
-                if error == nil, model.count == 0 {
-                    // last page
-                    self.pagination.totalPage = self.pagination.page
-                }
-                self.networkStatus.value = .none
-            }
+            })
         }
+        
     }
     
     func modelAtIndex(_ index: Int) -> HotelModel? {
