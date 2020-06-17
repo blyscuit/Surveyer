@@ -86,16 +86,16 @@ class SurveyViewModelTest: XCTestCase {
 }
 
 fileprivate class MockSurveyService : SurveyServiceProtocol {
+    func getSurveys(page: Int, perPage: Int, completionHandler: @escaping (Result<[HotelModel]?, Error>) -> Void) -> Request {
+        if let models = models {
+            completionHandler(.success(models))
+        } else {
+            completionHandler(.failure(NetworkError(description: "", code: 201)))
+        }
+        return AF.request(URL(string: "Test")!)
+    }
+    
     
     var models : [HotelModel]?
-    
-    func getSurveys(page: Int, perPage: Int, completionHandler: @escaping ([HotelModel]?, Error?) -> Void) -> Alamofire.Request {
-        if let models = models {
-            completionHandler(models, nil)
-        } else {
-            completionHandler(nil, NetworkError(description: "", code: 201))
-        }
-        return Alamofire.request(URL(string: "Test")!)
-    }
 }
 
