@@ -7,6 +7,6 @@
 
 import UIKit
 
-class DetailViewModel: NSObject {
+class DetailViewModel {
     var hotelModel: DynamicValue<HotelModel?> = DynamicValue(nil)
 }
